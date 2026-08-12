@@ -3,21 +3,21 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* Warme, ruhige Palette passend zu einem Dankbarkeits-Tagebuch */
-  --color-cream-50: #fdfbf6;
-  --color-cream-100: #f7f3e9;
-  --color-cream-200: #eee5d3;
+  /* "Nature Calm"-Palette: natürlich, beruhigend, freundlich (Logo-Farbvorgabe) */
+  --color-cream-50: #fbf4e9;
+  --color-cream-100: #f7e8d3;
+  --color-cream-200: #e3d5c2;
 
-  --color-forest-50: #edf5f0;
-  --color-forest-100: #d3e6da;
-  --color-forest-400: #52937a;
-  --color-forest-500: #2d6a4f;
-  --color-forest-600: #23573f;
-  --color-forest-700: #1a4230;
+  --color-forest-50: #eaf2f0;
+  --color-forest-100: #c6d9d0;
+  --color-forest-400: #649d8d;
+  --color-forest-500: #2e7d6b;
+  --color-forest-600: #246253;
+  --color-forest-700: #0f4c5c;
 
-  --color-amber-100: #fbeecb;
-  --color-amber-400: #e0a94a;
-  --color-amber-500: #cc8f2c;
+  --color-amber-100: #faddce;
+  --color-amber-400: #f4b393;
+  --color-amber-500: #d79e81;
 
   --color-ink-50: #f7f6f3;
   --color-ink-400: #6b6459;
@@ -27,6 +27,16 @@
 
 html {
   color-scheme: light dark;
+}
+
+/* Verhindert horizontales Verschieben/Abschneiden in der installierten PWA (iOS):
+   ohne diese Begrenzung reicht ein minimaler Breiten-Überhang (z.B. beim ersten
+   Rendern der Statistik-Chart), damit Safari seitlich scrollbar wird. */
+html,
+body,
+#root {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
