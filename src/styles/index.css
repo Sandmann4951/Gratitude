@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Warme, ruhige Palette passend zu einem Dankbarkeits-Tagebuch */
+  --color-cream-50: #fdfbf6;
+  --color-cream-100: #f7f3e9;
+  --color-cream-200: #eee5d3;
+
+  --color-forest-50: #edf5f0;
+  --color-forest-100: #d3e6da;
+  --color-forest-400: #52937a;
+  --color-forest-500: #2d6a4f;
+  --color-forest-600: #23573f;
+  --color-forest-700: #1a4230;
+
+  --color-amber-100: #fbeecb;
+  --color-amber-400: #e0a94a;
+  --color-amber-500: #cc8f2c;
+
+  --color-ink-50: #f7f6f3;
+  --color-ink-400: #6b6459;
+  --color-ink-600: #45403a;
+  --color-ink-900: #2a2620;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  @apply bg-cream-100 text-ink-900 antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-ink-900 text-cream-100;
+  }
+}
+
+/* Größere Tap-Ziele auf mobilen Geräten, angenehmere Scrollbars */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
