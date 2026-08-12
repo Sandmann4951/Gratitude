@@ -9,7 +9,7 @@ export function MoodTrendChart({ series }: { series: DayMood[] }) {
   const data = series.map((d) => ({ ...d, label: formatDateShortDe(d.date) }))
 
   return (
-    <div className="h-56 w-full">
+    <div className="h-56 w-full overflow-hidden">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" className="stroke-forest-100 dark:stroke-ink-600" />

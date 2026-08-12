@@ -29,6 +29,16 @@ html {
   color-scheme: light dark;
 }
 
+/* Verhindert horizontales Verschieben/Abschneiden in der installierten PWA (iOS):
+   ohne diese Begrenzung reicht ein minimaler Breiten-Überhang (z.B. beim ersten
+   Rendern der Statistik-Chart), damit Safari seitlich scrollbar wird. */
+html,
+body,
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   @apply bg-cream-100 text-ink-900 antialiased;
 }
