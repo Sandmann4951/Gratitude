@@ -2,8 +2,8 @@ import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YA
 import { formatDateShortDe } from '@/lib/date'
 import type { DayMood } from '@/features/stats/aggregate'
 
-const MORNING_COLOR = '#e0a94a'
-const EVENING_COLOR = '#2d6a4f'
+const MORNING_COLOR = '#d79e81'
+const EVENING_COLOR = '#2e7d6b'
 
 export function MoodTrendChart({ series }: { series: DayMood[] }) {
   const data = series.map((d) => ({ ...d, label: formatDateShortDe(d.date) }))
