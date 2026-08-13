@@ -14,6 +14,7 @@ keinen Server, kein Konto, keine Synchronisation.
 - 📊 Stimmungsbarometer 0–10 pro Eintrag
 - 📷 Optionales Stimmungsfoto (wird lokal komprimiert gespeichert)
 - 🔒 Einträge sind nach dem Speichern unveränderlich – nur Verlauf & Statistik zum Nachlesen
+- 🔐 Optionale App-Sperre (PIN, wahlweise mit Face ID/Touch ID) schützt das Tagebuch auf dem Gerät
 - 📅 Kalender-Verlauf und Wochen-/Monats-Statistik (Stimmungsverlauf, Serien, Vollständigkeit)
 - ⏰ Erinnerungen: zuverlässiger In-App-Hinweis + optionale native Benachrichtigungen
   (echte Hintergrund-Zustellung ist ohne eigenen Server browserabhängig eingeschränkt,
@@ -46,6 +47,10 @@ npm run lint      # oxlint
 - **Recharts** für den Stimmungsverlauf in der Statistik
 - **vite-plugin-pwa** (`injectManifest`-Strategie) – eigener Service Worker in `src/sw.ts`
   für Offline-Precaching und Erinnerungs-Benachrichtigungen
+- **App-Sperre** (`src/features/lock/`, `src/lib/appLock.ts`): PIN wird nie im Klartext
+  gespeichert, nur ein gesalzener PBKDF2-Hash in `localStorage`; Face ID/Touch ID läuft
+  über WebAuthn mit einem lokalen "platform authenticator" – ganz ohne Server, da ein
+  erfolgreicher `navigator.credentials.get()` bereits die Geräte-Biometrie bestätigt.
 
 Weitere Details (Datenmodell, Fragen-Rotationslogik, Reminder-Konzept) siehe Code-Kommentare
 in `src/db/schema.ts`, `src/features/entry/questionSelector.ts` und

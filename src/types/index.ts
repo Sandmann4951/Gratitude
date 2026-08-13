@@ -46,3 +46,17 @@ export interface ReminderSettings {
   /** Grenze zwischen Morgen- und Abend-Slot, "HH:MM". Ab hier gilt der Abend-Slot als "aktuell". */
   middayCutoff: string
 }
+
+/**
+ * App-Sperre: rein lokaler Zugriffsschutz (PIN + optional Face-/Touch-ID).
+ * Es gibt keinen Server – PIN wird nie im Klartext gespeichert, nur ein
+ * gesalzener PBKDF2-Hash in localStorage (siehe lib/appLock.ts).
+ */
+export interface AppLockSettings {
+  enabled: boolean
+  pinSalt: string // hex
+  pinHash: string // hex
+  biometricEnabled: boolean
+  /** WebAuthn-Credential-ID (base64url) des lokalen Geräte-Authenticators, falls eingerichtet. */
+  biometricCredentialId: string | null
+}

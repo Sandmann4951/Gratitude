@@ -16,13 +16,16 @@ export function ReminderBanner() {
   if (!duePeriod || !dismissKey || dismissed.has(dismissKey)) return null
 
   return (
-    <div className="mx-4 mb-3 flex items-center justify-between gap-3 rounded-xl bg-amber-100 px-4 py-3 text-sm dark:bg-ink-600">
+    <div className="mx-4 mb-3 flex items-center justify-between gap-3 rounded-3xl bg-amber-100 px-4 py-3.5 text-sm shadow-sm dark:bg-ink-600">
       <div>
         <span aria-hidden>⏰ </span>
         Zeit für {LABEL[duePeriod]}!
       </div>
       <div className="flex items-center gap-2">
-        <Link to={`/entry/${duePeriod}`} className="rounded-lg bg-forest-500 px-3 py-1.5 font-medium text-white">
+        <Link
+          to={`/entry/${duePeriod}`}
+          className="rounded-full bg-forest-500 px-4 py-2 font-semibold text-white shadow-md shadow-forest-500/25"
+        >
           Los geht's
         </Link>
         <button

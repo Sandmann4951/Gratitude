@@ -107,7 +107,7 @@ export function EntryFlowPage() {
                 value={answers[q.id] ?? ''}
                 onChange={(e) => setAnswers((a) => ({ ...a, [q.id]: e.target.value }))}
                 placeholder="Deine Antwort …"
-                className="w-full resize-none rounded-xl border border-forest-100 bg-cream-50 p-3 text-sm text-ink-900 outline-none focus:border-forest-400 dark:border-ink-600 dark:bg-ink-600/40 dark:text-cream-100"
+                className="w-full resize-none rounded-2xl border border-forest-100 bg-cream-50 p-3 text-sm text-ink-900 outline-none focus:border-forest-400 dark:border-ink-600 dark:bg-ink-600/40 dark:text-cream-100"
               />
             </Card>
           ))

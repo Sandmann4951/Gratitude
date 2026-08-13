@@ -6,14 +6,20 @@ import { EntryFlowPage } from '@/features/entry/EntryFlowPage'
 import { HistoryCalendarPage } from '@/features/history/HistoryCalendarPage'
 import { EntryDetailPage } from '@/features/history/EntryDetailPage'
 import { SettingsPage } from '@/features/settings/SettingsPage'
+import { LockScreen } from '@/features/lock/LockScreen'
+import { useAppLockStore } from '@/store/useAppLockStore'
 
 // Recharts ist der mit Abstand größte Dependency-Anteil im Bundle – die
 // Statistik-Seite daher separat nachladen, damit der Start-Screen schlank bleibt.
 const StatsPage = lazy(() => import('@/features/stats/StatsPage').then((m) => ({ default: m.StatsPage })))
 
 export default function App() {
+  const locked = useAppLockStore((s) => s.locked && s.config.enabled)
+
+  if (locked) return <LockScreen />
+
   return (
-    <div className="min-h-dvh pb-20">
+    <div className="min-h-dvh pb-28">
       <div className="mx-auto max-w-md">
         <Routes>
           <Route path="/" element={<HomePage />} />
