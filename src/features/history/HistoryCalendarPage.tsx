@@ -52,16 +52,16 @@ export function HistoryCalendarPage() {
                   type="button"
                   onClick={() => setMonth(addMonths(month, -1))}
                   aria-label="Vorheriger Monat"
-                  className="rounded-lg p-1.5 text-ink-400 hover:bg-cream-200 dark:hover:bg-ink-600/60"
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-ink-400 hover:bg-cream-200 dark:hover:bg-ink-600/60"
                 >
                   ←
                 </button>
-                <p className="font-medium text-ink-900 dark:text-cream-100">{formatMonthDe(month)}</p>
+                <p className="font-bold tracking-tight text-ink-900 dark:text-cream-100">{formatMonthDe(month)}</p>
                 <button
                   type="button"
                   onClick={() => setMonth(addMonths(month, 1))}
                   aria-label="Nächster Monat"
-                  className="rounded-lg p-1.5 text-ink-400 hover:bg-cream-200 dark:hover:bg-ink-600/60"
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-ink-400 hover:bg-cream-200 dark:hover:bg-ink-600/60"
                 >
                   →
                 </button>
@@ -86,7 +86,7 @@ export function HistoryCalendarPage() {
                         <Link
                           key={period}
                           to={`/history/${selectedDate}/${period}`}
-                          className="flex items-center justify-between rounded-xl bg-cream-200 px-3 py-2.5 text-sm dark:bg-ink-600/60"
+                          className="flex items-center justify-between rounded-full bg-cream-200 px-4 py-3 text-sm dark:bg-ink-600/60"
                         >
                           <span className="text-ink-600 dark:text-cream-100">{PERIOD_LABEL[period]}</span>
                           <span aria-hidden>{moodEmoji(entry.mood)}</span>

@@ -10,22 +10,24 @@ const ITEMS = [
 export function BottomNavBar() {
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-20 border-t border-forest-100 bg-cream-50/95 backdrop-blur pb-[env(safe-area-inset-bottom)] dark:border-ink-600 dark:bg-ink-900/95"
+      className="fixed inset-x-0 bottom-0 z-20 px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)]"
       aria-label="Hauptnavigation"
     >
-      <ul className="mx-auto flex max-w-md justify-around">
+      <ul className="mx-auto flex max-w-md items-stretch justify-around gap-1 rounded-[28px] bg-paper/90 p-2 shadow-xl shadow-ink-900/10 ring-1 ring-black/[0.03] backdrop-blur-lg dark:bg-ink-900/90 dark:ring-white/5">
         {ITEMS.map(({ to, label, icon: Icon }) => (
           <li key={to} className="flex-1">
             <NavLink
               to={to}
               end={to === '/'}
               className={({ isActive }) =>
-                `flex flex-col items-center gap-0.5 py-2 text-xs font-medium transition-colors ${
-                  isActive ? 'text-forest-500 dark:text-forest-400' : 'text-ink-400'
+                `flex flex-col items-center gap-1 rounded-2xl py-2 text-[11px] font-semibold transition-colors ${
+                  isActive
+                    ? 'bg-forest-50 text-forest-600 dark:bg-forest-500/15 dark:text-forest-400'
+                    : 'text-ink-400'
                 }`
               }
             >
-              <Icon className="h-6 w-6" />
+              <Icon className="h-5 w-5" />
               {label}
             </NavLink>
           </li>

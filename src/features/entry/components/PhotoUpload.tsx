@@ -54,7 +54,7 @@ export function PhotoUpload({ value, onChange }: PhotoUploadProps) {
           type="button"
           disabled={busy}
           onClick={() => inputRef.current?.click()}
-          className="flex h-28 w-full flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-forest-100 text-sm text-ink-400 dark:border-ink-600"
+          className="flex h-28 w-full flex-col items-center justify-center gap-1 rounded-2xl border-2 border-dashed border-forest-100 text-sm text-ink-400 dark:border-ink-600"
         >
           <span className="text-2xl" aria-hidden>
             📷

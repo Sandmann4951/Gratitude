@@ -43,13 +43,15 @@ export function StatsPage() {
           <EmptyState icon="📊" title="Noch keine Daten" description="Sobald du ein paar Einträge gemacht hast, siehst du hier deine Statistik." />
         ) : (
           <>
-            <div className="flex gap-2 rounded-xl bg-cream-200 p-1 dark:bg-ink-600/60">
+            <div className="flex gap-1 rounded-full bg-cream-200 p-1.5 dark:bg-ink-600/60">
               {(['week', 'month'] as Range[]).map((r) => (
                 <button
                   key={r}
                   onClick={() => setRange(r)}
-                  className={`flex-1 rounded-lg py-1.5 text-sm font-medium transition-colors ${
-                    range === r ? 'bg-cream-50 text-forest-600 shadow-sm dark:bg-ink-900 dark:text-cream-100' : 'text-ink-400'
+                  className={`flex-1 rounded-full py-2 text-sm font-semibold transition-all ${
+                    range === r
+                      ? 'bg-paper text-forest-600 shadow-md dark:bg-ink-900 dark:text-cream-100'
+                      : 'text-ink-400'
                   }`}
                 >
                   {r === 'week' ? 'Diese Woche' : 'Dieser Monat'}

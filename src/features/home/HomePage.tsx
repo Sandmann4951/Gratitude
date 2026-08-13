@@ -61,23 +61,23 @@ export function HomePage() {
                 {entry ? (
                   <Link
                     to={`/history/${entry.date}/${entry.period}`}
-                    className="block rounded-xl bg-forest-50 px-3 py-2.5 text-center text-sm font-medium text-forest-600 dark:bg-ink-600 dark:text-cream-100"
+                    className="block rounded-full bg-forest-50 px-4 py-3 text-center text-sm font-semibold text-forest-600 dark:bg-ink-600 dark:text-cream-100"
                   >
                     Eintrag ansehen
                   </Link>
                 ) : isActive ? (
                   <Link
                     to={`/entry/${period}`}
-                    className="block rounded-xl bg-forest-500 px-3 py-2.5 text-center text-sm font-semibold text-white"
+                    className="block rounded-full bg-forest-500 px-4 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-forest-500/25"
                   >
                     Jetzt eintragen
                   </Link>
                 ) : isMissed ? (
-                  <p className="rounded-xl bg-cream-200 px-3 py-2.5 text-center text-sm text-ink-400 dark:bg-ink-600/60">
+                  <p className="rounded-full bg-cream-200 px-4 py-3 text-center text-sm text-ink-400 dark:bg-ink-600/60">
                     Für heute verpasst
                   </p>
                 ) : (
-                  <p className="rounded-xl bg-cream-200 px-3 py-2.5 text-center text-sm text-ink-400 dark:bg-ink-600/60">
+                  <p className="rounded-full bg-cream-200 px-4 py-3 text-center text-sm text-ink-400 dark:bg-ink-600/60">
                     Später verfügbar
                   </p>
                 )}

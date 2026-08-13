@@ -23,6 +23,9 @@
   --color-ink-400: #6b6459;
   --color-ink-600: #45403a;
   --color-ink-900: #2a2620;
+
+  /* Reinweiße Karten-Oberfläche für den "floating card"-Look (heller/knackiger als cream-50). */
+  --color-paper: #ffffff;
 }
 
 html {
@@ -52,4 +55,25 @@ body {
 /* Größere Tap-Ziele auf mobilen Geräten, angenehmere Scrollbars */
 * {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Fehler-Feedback der PIN-Eingabe (App-Sperre) */
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  80% {
+    transform: translateX(4px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-8px);
+  }
+  40%,
+  60% {
+    transform: translateX(8px);
+  }
 }

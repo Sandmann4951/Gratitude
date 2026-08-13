@@ -24,7 +24,7 @@ export function DayCell({ day, dateKey, entries, isToday, isSelected, onSelect }
     <button
       type="button"
       onClick={() => onSelect(dateKey)}
-      className={`flex aspect-square flex-col items-center justify-center gap-0.5 rounded-lg text-sm transition-colors ${
+      className={`flex aspect-square flex-col items-center justify-center gap-0.5 rounded-2xl text-sm font-medium transition-colors ${
         isSelected
           ? 'bg-forest-500 text-white'
           : isToday
