@@ -36,6 +36,8 @@ export function EntryFlowPage() {
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [mood, setMood] = useState<number | null>(null)
   const [photo, setPhoto] = useState<{ blob: Blob; mimeType: string } | null>(null)
+  const [dayPhoto, setDayPhoto] = useState<{ blob: Blob; mimeType: string } | null>(null)
+  const [dayPhotoCaption, setDayPhotoCaption] = useState('')
   const [confirmOpen, setConfirmOpen] = useState(false)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -76,6 +78,7 @@ export function EntryFlowPage() {
           { questionId: string; text: string; answer: string },
         ],
         photo: photo ?? undefined,
+        dayPhoto: dayPhoto ? { ...dayPhoto, caption: dayPhotoCaption.trim() } : undefined,
       })
       navigate(`/history/${entry.date}/${entry.period}`, { replace: true })
     } catch (err) {
@@ -119,6 +122,19 @@ export function EntryFlowPage() {
 
         <Card>
           <PhotoUpload value={photo} onChange={setPhoto} />
+        </Card>
+
+        <Card>
+          <PhotoUpload value={dayPhoto} onChange={setDayPhoto} label="Bild des Tages" />
+          {dayPhoto && (
+            <textarea
+              rows={2}
+              value={dayPhotoCaption}
+              onChange={(e) => setDayPhotoCaption(e.target.value)}
+              placeholder="Was ist darauf zu sehen? (optional)"
+              className="mt-3 w-full resize-none rounded-2xl border border-forest-100 bg-cream-50 p-3 text-sm text-ink-900 outline-none focus:border-forest-400 dark:border-ink-600 dark:bg-ink-600/40 dark:text-cream-100"
+            />
+          )}
         </Card>
 
         {error && <p className="text-sm text-red-600">{error}</p>}

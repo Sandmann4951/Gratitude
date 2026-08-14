@@ -23,6 +23,9 @@ export interface JournalEntry {
   questions: [AnsweredQuestion, AnsweredQuestion, AnsweredQuestion]
   mood: number // 0–10
   photoId?: number
+  /** Zusätzliches, optionales "Bild des Tages" (unabhängig vom Stimmungsfoto) mit kurzer Bildunterschrift. */
+  dayPhotoId?: number
+  dayPhotoCaption?: string
   createdAt: number // epoch ms
 }
 

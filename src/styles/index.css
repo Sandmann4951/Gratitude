@@ -57,6 +57,17 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Buch-Export (BookPage): erzwingt helles Layout beim Drucken/„Als PDF speichern",
+   unabhängig vom aktuell aktiven Farbschema (prefers-color-scheme kann beim
+   Druckdialog vom Bildschirm-Modus abweichen). */
+@media print {
+  .book-page,
+  .book-page * {
+    color: #2a2620 !important;
+    background: #ffffff !important;
+  }
+}
+
 /* Fehler-Feedback der PIN-Eingabe (App-Sperre) */
 @keyframes shake {
   10%,
