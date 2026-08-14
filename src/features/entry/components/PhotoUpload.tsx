@@ -4,10 +4,11 @@ import { compressImage } from '@/lib/photo'
 interface PhotoUploadProps {
   value: { blob: Blob; mimeType: string } | null
   onChange: (photo: { blob: Blob; mimeType: string } | null) => void
+  label?: string
 }
 
-/** Optionaler Foto-Upload zur Stimmungs-Dokumentation: Kamera oder Galerie, wird vor der Anzeige komprimiert. */
-export function PhotoUpload({ value, onChange }: PhotoUploadProps) {
+/** Optionaler Foto-Upload (Stimmungsfoto oder Bild des Tages): Kamera oder Galerie, wird vor der Anzeige komprimiert. */
+export function PhotoUpload({ value, onChange, label = 'Foto zur Stimmung' }: PhotoUploadProps) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
@@ -35,7 +36,7 @@ export function PhotoUpload({ value, onChange }: PhotoUploadProps) {
   return (
     <div>
       <p className="mb-2 text-sm font-medium text-ink-600 dark:text-cream-100">
-        Foto zur Stimmung <span className="font-normal text-ink-400">(optional)</span>
+        {label} <span className="font-normal text-ink-400">(optional)</span>
       </p>
 
       {previewUrl ? (

@@ -12,7 +12,7 @@ keinen Server, kein Konto, keine Synchronisation.
 
 - 🌅🌙 Morgen- und Abend-Eintrag mit je 3 Fragen aus einem Katalog von 20 rotierenden Fragen
 - 📊 Stimmungsbarometer 0–10 pro Eintrag
-- 📷 Optionales Stimmungsfoto (wird lokal komprimiert gespeichert)
+- 📷 Optionales Stimmungsfoto und zusätzliches "Bild des Tages" mit Bildunterschrift (beide werden lokal komprimiert gespeichert)
 - 🔒 Einträge sind nach dem Speichern unveränderlich – nur Verlauf & Statistik zum Nachlesen
 - 🔐 Optionale App-Sperre (PIN, wahlweise mit Face ID/Touch ID) schützt das Tagebuch auf dem Gerät
 - 📅 Kalender-Verlauf und Wochen-/Monats-Statistik (Stimmungsverlauf, Serien, Vollständigkeit)
@@ -20,6 +20,7 @@ keinen Server, kein Konto, keine Synchronisation.
   (echte Hintergrund-Zustellung ist ohne eigenen Server browserabhängig eingeschränkt,
   siehe Hinweistext in den Einstellungen)
 - 💾 JSON-Backup exportieren/importieren, da alles nur lokal gespeichert wird
+- 📖 Als "Dankbarkeitsbuch" drucken oder als PDF speichern (Monat, Jahr oder alle Einträge)
 - 📱 Installierbar als PWA, funktioniert offline
 
 ## Entwicklung

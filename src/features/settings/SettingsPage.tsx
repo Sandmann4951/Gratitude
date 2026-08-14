@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Header } from '@/components/Header'
 import { Card } from '@/components/Card'
 import { Button } from '@/components/Button'
@@ -21,6 +22,7 @@ import { VerifyPinDialog } from '@/features/lock/VerifyPinDialog'
 type PinFlow = 'enable' | 'change-verify' | 'change-set' | 'disable-verify' | null
 
 export function SettingsPage() {
+  const navigate = useNavigate()
   const settings = useSettingsStore((s) => s.settings)
   const update = useSettingsStore((s) => s.update)
   const lockConfig = useAppLockStore((s) => s.config)
@@ -209,6 +211,17 @@ export function SettingsPage() {
               {biometricError && <p className="text-xs text-red-600">{biometricError}</p>}
             </div>
           )}
+        </Card>
+
+        <Card>
+          <p className="font-medium text-ink-900 dark:text-cream-100">Als Buch exportieren</p>
+          <p className="mt-1 text-xs text-ink-400">
+            Einen Monat, ein Jahr oder alle Einträge hübsch aufbereitet drucken oder über den Druckdialog als PDF
+            speichern.
+          </p>
+          <Button variant="secondary" onClick={() => navigate('/book')} className="mt-3 w-full">
+            Buch öffnen
+          </Button>
         </Card>
 
         <Card>

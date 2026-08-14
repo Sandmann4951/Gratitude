@@ -6,6 +6,7 @@ import { EntryFlowPage } from '@/features/entry/EntryFlowPage'
 import { HistoryCalendarPage } from '@/features/history/HistoryCalendarPage'
 import { EntryDetailPage } from '@/features/history/EntryDetailPage'
 import { SettingsPage } from '@/features/settings/SettingsPage'
+import { BookPage } from '@/features/book/BookPage'
 import { LockScreen } from '@/features/lock/LockScreen'
 import { useAppLockStore } from '@/store/useAppLockStore'
 
@@ -19,8 +20,8 @@ export default function App() {
   if (locked) return <LockScreen />
 
   return (
-    <div className="min-h-dvh pb-28">
-      <div className="mx-auto max-w-md">
+    <div className="min-h-dvh pb-28 print:pb-0">
+      <div className="mx-auto max-w-md print:max-w-none">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/entry/:period" element={<EntryFlowPage />} />
@@ -35,6 +36,7 @@ export default function App() {
             }
           />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/book" element={<BookPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

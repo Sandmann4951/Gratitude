@@ -10,7 +10,7 @@ const ITEMS = [
 export function BottomNavBar() {
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-20 px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)]"
+      className="fixed inset-x-0 bottom-0 z-20 px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] print:hidden"
       aria-label="Hauptnavigation"
     >
       <ul className="mx-auto flex max-w-md items-stretch justify-around gap-1 rounded-[28px] bg-paper/90 p-2 shadow-xl shadow-ink-900/10 ring-1 ring-black/[0.03] backdrop-blur-lg dark:bg-ink-900/90 dark:ring-white/5">

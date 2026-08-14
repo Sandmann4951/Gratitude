@@ -66,6 +66,15 @@ export function EntryDetailPage() {
           </Card>
         ))}
 
+        {entry.dayPhotoId && (
+          <div>
+            <PhotoThumbnail photoId={entry.dayPhotoId} alt="Bild des Tages" className="h-56 w-full rounded-2xl object-cover" />
+            {entry.dayPhotoCaption && (
+              <p className="mt-2 px-1 text-sm text-ink-600 dark:text-cream-100">{entry.dayPhotoCaption}</p>
+            )}
+          </div>
+        )}
+
         <Link to="/history" className="block pt-2 text-center text-sm font-medium text-forest-500">
           ← Zurück zum Verlauf
         </Link>

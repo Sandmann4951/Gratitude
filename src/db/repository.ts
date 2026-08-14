@@ -23,6 +23,8 @@ export interface CreateEntryInput {
   questions: [AnsweredQuestion, AnsweredQuestion, AnsweredQuestion]
   mood: number
   photo?: { blob: Blob; mimeType: string }
+  /** Zusätzliches, vom Stimmungsfoto unabhängiges "Bild des Tages" mit optionaler Bildunterschrift. */
+  dayPhoto?: { blob: Blob; mimeType: string; caption: string }
 }
 
 /** Legt einen neuen, ab sofort unveränderlichen Eintrag an. */
@@ -37,12 +39,22 @@ export async function createEntry(input: CreateEntryInput): Promise<JournalEntry
           createdAt: Date.now(),
         })
       }
+      let dayPhotoId: number | undefined
+      if (input.dayPhoto) {
+        dayPhotoId = await db.photos.add({
+          blob: input.dayPhoto.blob,
+          mimeType: input.dayPhoto.mimeType,
+          createdAt: Date.now(),
+        })
+      }
       const entry: JournalEntry = {
         date: input.date,
         period: input.period,
         questions: input.questions,
         mood: input.mood,
         photoId,
+        dayPhotoId,
+        dayPhotoCaption: input.dayPhoto?.caption || undefined,
         createdAt: Date.now(),
       }
       const id = await db.entries.add(entry)
@@ -135,12 +147,24 @@ export async function importAllData(json: string): Promise<{ imported: number; s
         const blob = base64ToBlob(sourcePhoto.base64, sourcePhoto.mimeType)
         photoId = await db.photos.add({ blob, mimeType: sourcePhoto.mimeType, createdAt: sourcePhoto.createdAt })
       }
+      let dayPhotoId: number | undefined
+      const sourceDayPhoto = data.photos.find((p) => p.id === entry.dayPhotoId)
+      if (sourceDayPhoto) {
+        const blob = base64ToBlob(sourceDayPhoto.base64, sourceDayPhoto.mimeType)
+        dayPhotoId = await db.photos.add({
+          blob,
+          mimeType: sourceDayPhoto.mimeType,
+          createdAt: sourceDayPhoto.createdAt,
+        })
+      }
       await db.entries.add({
         date: entry.date,
         period: entry.period,
         questions: entry.questions,
         mood: entry.mood,
         photoId,
+        dayPhotoId,
+        dayPhotoCaption: entry.dayPhotoCaption,
         createdAt: entry.createdAt,
       })
       imported++
