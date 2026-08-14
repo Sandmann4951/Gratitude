@@ -68,7 +68,6 @@ export function PhotoUpload({ value, onChange, label = 'Foto zur Stimmung' }: Ph
         ref={inputRef}
         type="file"
         accept="image/*"
-        capture="user"
         className="hidden"
         onChange={(e) => {
           void handleFile(e.target.files?.[0])
